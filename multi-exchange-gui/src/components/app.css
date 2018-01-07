@@ -1,0 +1,94 @@
+.app-header {
+  background-color: #222;
+  height: 100px;
+  padding: 20px;
+  color: white;
+}
+
+.app-title {
+  font-size: 2.0em;
+  text-align: center;
+}
+
+.app-content {
+  margin-top: 60px;
+}
+
+.content {
+  max-height: 85vh;
+}
+
+.sidebar {
+  padding-right: 50px;
+}
+
+.sidebar-content {
+  border: 1px solid lightgray;
+  min-height: 85vh;
+}
+
+.introduction {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.greenRow {
+  background-color: #CEE7C3;
+}
+.redRow {
+  background-color: #e7a39a;
+}
+
+.blueRow {
+  background-color: #3093e7;
+}
+
+
+.react-bs-table {
+  min-height: calc(300px);
+  max-height: calc(300px);
+  overflow: auto;
+}
+
+.react-bs-table tr {
+  cursor: pointer;
+}
+
+.custom-select-class {
+  border: 2px solid black;
+}
+
+.profit-count {
+  font-weight: bold;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+#lastUpdate {
+  margin-top: 20px;
+}
+
+#filterControls {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.filter-control {
+  margin-top: 20px;
+}
+
+.filter-control-header {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+#trackingDetails {
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+
+#singleProfitTracking {
+  height: 400px;
+}
