@@ -17,6 +17,7 @@ buildscript {
 
 }
 
+
 apply plugin: "war"
 apply plugin: "org.springframework.boot"
 apply plugin: "org.junit.platform.gradle.plugin"
@@ -52,7 +53,6 @@ task localDeploy (dependsOn: war){
 springBoot {
 	mainClassName = "at.chaoticbits.DevApplication"
 }
-
 
 
 repositories {
@@ -91,8 +91,9 @@ dependencies {
 	compile("mysql:mysql-connector-java")
 
 	// test
-	testCompile("org.springframework.boot:spring-boot-starter-test") { exclude module: "junit" }
-	testCompile("org.jetbrains.kotlin:kotlin-test-junit")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+	testCompile group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.1.0-M1'
+
 
 	// needed to generated deploy able war file
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
