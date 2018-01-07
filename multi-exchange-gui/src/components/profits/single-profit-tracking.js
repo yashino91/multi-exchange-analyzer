@@ -75,7 +75,7 @@ class SingleProfitTracking extends Component {
                                     config = {{
                                         chart: {
                                             type: 'spline',
-                                            height: 250
+                                            height: 240
                                         },
                                         title: {
                                             text: 'Live Profit Chart'
@@ -135,7 +135,12 @@ class SingleProfitTracking extends Component {
         const current = this.state.current;
 
         return (
-            <div className="panel-heading">{`${current.currencyPair} (${percentageFormatter(current.profit)})`}</div>
+            <div className="panel-heading">
+                {`${current.currencyPair} (${percentageFormatter(current.profit)})`}
+                {this.state.current.containsErc20Token &&
+                    <span title="Erc20 Token" className="pull-right label label-warning tokenBadge">Erc20</span>
+                }
+            </div>
         );
     }
 

@@ -45,8 +45,8 @@
 
 
 .react-bs-table {
-  min-height: calc(300px);
-  max-height: calc(300px);
+  min-height: calc(315px);
+  max-height: calc(315px);
   overflow: auto;
 }
 
@@ -55,7 +55,7 @@
 }
 
 .custom-select-class {
-  border: 2px solid black;
+  border: 2px solid #30b1ff;
 }
 
 .profit-count {
@@ -90,5 +90,10 @@
 }
 
 #singleProfitTracking {
-  height: 400px;
+  height: 380px;
+}
+
+.tokenBadge {
+  margin-left: 10px;
+  font-size: 0.9em;
 }

@@ -15,18 +15,35 @@ class ProfitTable extends Component {
             options: {
                 noDataText: "No profits available",
                 clearSearch: true
-            }
+            },
+            erc20Tokens: []
         };
 
         this.selectRowProp = {
             mode: 'radio',
             hideSelectColumn: true,
-            bgColor: '#BDDFF0',
             clickToSelect: true,
             onSelect: this.onRowSelect.bind(this),
             className: 'custom-select-class',
             selected: [props.profits.data[0].currencyPair]
-        }
+        };
+
+    }
+
+    componentDidMount() {
+
+        fetch(`https://raw.githubusercontent.com/kvhnuke/etherwallet/mercury/app/scripts/tokens/ethTokens.json`)
+            .then(res => {
+                if(res.status === 200)
+                    return res.json();
+
+                throw (res.status);
+            })
+            .then(erc20Tokens => {
+                this.setState({erc20Tokens: erc20Tokens})
+            }).catch(err => {
+                console.error("error fetching tokens: ", err);
+        })
     }
 
 
@@ -42,7 +59,8 @@ class ProfitTable extends Component {
                     search
                     data={profits.filtered.map((profit, index) => {
                         return Object.assign({}, profit, {
-                            index: index + 1
+                            index: index + 1,
+                            containsErc20Token: this.containsErc20Token(profit.currencyPair)
                         })
                     })}
                     options={this.state.options}
@@ -50,6 +68,7 @@ class ProfitTable extends Component {
                     <TableHeaderColumn
                         width='100px'
                         dataField='index'
+                        dataFormat={this.rankFormatter}
                         dataSort={ true }>
                         Rank
                     </TableHeaderColumn>
@@ -117,6 +136,31 @@ class ProfitTable extends Component {
 
         this.selectRowProp.selected[0] = row.currencyPair;
     }
+
+    rankFormatter(rank, row) {
+
+        if (row.containsErc20Token)
+            return (
+                <span>
+                    <span>{rank}</span>
+                    <span title="Erc20 Token" className="pull-right label label-warning tokenBadge">Erc20</span>
+                </span>
+            );
+
+        return <span>{rank}</span>;
+    }
+
+    containsErc20Token(currencyPair) {
+
+        const firstCurrency = currencyPair.substring(0, currencyPair.indexOf('/'));
+        const secondCurrency = currencyPair.substring(currencyPair.indexOf('/') + 1);
+
+
+        if (this.state.erc20Tokens.find(token => token.symbol === firstCurrency || token.symbol === secondCurrency))
+            return true;
+
+        return false;
+    };
 }
 
 export default ProfitTable;

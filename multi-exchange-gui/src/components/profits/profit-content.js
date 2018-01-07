@@ -30,7 +30,7 @@ class ProfitContent extends Component {
             setTimeout(() => {
                 this.setState({transition: false});
                 window.scrollTo(0, 0);
-            }, 1000);
+            }, 500);
     }
 
 
@@ -115,7 +115,8 @@ class ProfitContent extends Component {
             trackedProfit: {
                 currencyPair: profit.currencyPair,
                 buyExchange: profit.buyExchange,
-                sellExchange: profit.sellExchange
+                sellExchange: profit.sellExchange,
+                containsErc20Token: profit.containsErc20Token
             },
             transition: true
         });
@@ -128,9 +129,14 @@ class ProfitContent extends Component {
         if (this.state.trackedProfit === undefined)
             return undefined;
 
-        return profits.data.find(profit => profit.currencyPair === this.state.trackedProfit.currencyPair &&
+        const trackedProfit = profits.data.find(profit => profit.currencyPair === this.state.trackedProfit.currencyPair &&
                                            profit.buyExchange === this.state.trackedProfit.buyExchange   &&
                                            profit.sellExchange === this.state.trackedProfit.sellExchange);
+
+        if(trackedProfit)
+            trackedProfit.containsErc20Token = this.state.trackedProfit.containsErc20Token;
+
+        return trackedProfit;
     }
 
 }
