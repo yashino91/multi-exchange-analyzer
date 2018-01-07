@@ -1,0 +1,7 @@
+/.idea/
+/multi-exchange-bot.iml
+/build/
+/out/
+/.gradle/
+/scripts/
+/src/main/resources/application-production.properties
