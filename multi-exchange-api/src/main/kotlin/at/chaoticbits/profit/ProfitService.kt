@@ -109,6 +109,7 @@ class ProfitService {
 
                 val profit = calculateDiffInPercentages(exchangeWithMinAskPrice.ask, exchangeWithMaxBidPrice.bid)
 
+                // only populate profits > 1
                 if (profit > 1)
                     exchangeProfits.put(
                         calculatedCurrencyPair,

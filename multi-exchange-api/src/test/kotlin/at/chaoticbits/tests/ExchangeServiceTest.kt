@@ -21,7 +21,7 @@ class ExchangeServiceTest {
 
 
     @Test
-    fun testNotNullGetExchangePriceByCurrencyPair() = runBlocking<Unit> {
+    fun testNotNullGetExchangePriceByCurrencyPair() = runBlocking {
         val exchange = ExchangeFactory.INSTANCE.createExchange(PoloniexExchange::class.java.name)
         val currencyPair = CurrencyPair.ETH_BTC
 

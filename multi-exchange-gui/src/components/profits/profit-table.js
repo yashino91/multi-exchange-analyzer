@@ -28,17 +28,11 @@ class ProfitTable extends Component {
             selected: [props.profits.data[0].currencyPair]
         }
     }
-    
-
-
 
 
     render() {
 
         const {profits} = this.props;
-
-        console.log("selected: ", this.selectRowProp.selected);
-
 
         return (
             <div className="col-md-12">

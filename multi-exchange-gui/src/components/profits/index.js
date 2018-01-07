@@ -8,6 +8,7 @@ import ProfitSideBar from './profit-sidebar';
 import {Exchanges} from "../utils/constants";
 
 
+
 class CalculateProfits extends Component {
 
 

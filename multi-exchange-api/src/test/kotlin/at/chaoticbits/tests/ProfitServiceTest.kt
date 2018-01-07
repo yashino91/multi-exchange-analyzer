@@ -37,9 +37,9 @@ class ProfitServiceTest {
     }
 
     @Test
-    fun testGenerateExchangeProfits() = runBlocking<Unit> {
+    fun testGenerateExchangeProfits() = runBlocking {
 
-        val exchangePrices = mutableListOf<ExchangePrice>(
+        val exchangePrices = mutableListOf(
                 ExchangePrice(CurrencyPair.ETC_BTC, "Kraken", 90.0, 50.0),
                 ExchangePrice(CurrencyPair.ETC_BTC, "BitFinex", 80.0, 40.0)
         )

@@ -16,6 +16,7 @@ class SingleProfitTracking extends Component {
             current: props.profit
         };
 
+        // initial profit data for real time chart
         this.data = [
             {
                 x: moment(props.profit.datetime).toDate(),
@@ -23,33 +24,16 @@ class SingleProfitTracking extends Component {
             }
         ];
 
-        this.renderHeading      = this.renderHeading.bind(this);
-        this.getPanelClassName  = this.getPanelClassName.bind(this);
+        this.renderHeading       = this.renderHeading.bind(this);
+        this.getPanelClassName   = this.getPanelClassName.bind(this);
+        this.addNewProfitToChart = this.addNewProfitToChart.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
         const {profit} = nextProps;
 
-
-        if (!_.isEqual(profit, this.props.profit)) {
-
-            const chart  = this.refs.chart.getChart();
-
-            // add the point
-            chart.series[0].addPoint(
-                {
-                    x: moment(profit.datetime).toDate(),
-                    y: profit.profit
-                },
-                true,
-                chart.series[0].data.length > 40
-            );
-
-            this.setState({
-                current: profit,
-            });
-        }
-
+        if (!_.isEqual(profit, this.props.profit))
+            this.addNewProfitToChart(profit);
     }
 
 
@@ -165,6 +149,25 @@ class SingleProfitTracking extends Component {
             default:
                 return "panel panel-default";
         }
+    }
+
+    addNewProfitToChart(profit) {
+
+        const chart  = this.refs.chart.getChart();
+
+        // add the point
+        chart.series[0].addPoint(
+            {
+                x: moment(profit.datetime).toDate(),
+                y: profit.profit
+            },
+            true,
+            chart.series[0].data.length > 40
+        );
+
+        this.setState({
+            current: profit,
+        });
     }
 
 }
