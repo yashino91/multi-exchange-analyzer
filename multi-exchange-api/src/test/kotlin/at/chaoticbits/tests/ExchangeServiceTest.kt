@@ -3,6 +3,7 @@ package at.chaoticbits.tests
 import at.chaoticbits.exchange.ExchangePrice
 import at.chaoticbits.exchange.ExchangeService
 import kotlinx.coroutines.experimental.runBlocking
+import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.knowm.xchange.ExchangeFactory
@@ -10,9 +11,7 @@ import org.knowm.xchange.currency.CurrencyPair
 import org.knowm.xchange.poloniex.PoloniexExchange
 import org.mockito.InjectMocks
 import org.mockito.junit.MockitoJUnitRunner
-import kotlin.test.assertNotNull
-import kotlin.test.assertNull
-import kotlin.test.assertTrue
+
 
 @RunWith(MockitoJUnitRunner::class)
 class ExchangeServiceTest {
@@ -45,14 +44,14 @@ class ExchangeServiceTest {
         val currencyPairs = mutableListOf<CurrencyPair>(CurrencyPair.ETH_BTC, CurrencyPair.BTC_EUR)
         val exchangePrices: List<ExchangePrice> = exchangeService.getExchangePriceByCurrencyPairs(currencyPairs)
 
-        assertTrue { exchangePrices.isNotEmpty() }
+        assertTrue(exchangePrices.isNotEmpty())
     }
 
     @Test fun testGetExchangePriceByCurrencyPair() = runBlocking {
 
         val exchangePrices: List<ExchangePrice> = exchangeService.getExchangePriceByCurrencyPair(CurrencyPair.ETH_BTC)
 
-        assertTrue { exchangePrices.isNotEmpty() }
+        assertTrue (exchangePrices.isNotEmpty())
     }
 
 }
