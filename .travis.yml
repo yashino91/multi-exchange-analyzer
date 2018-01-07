@@ -1,0 +1,4 @@
+language: java
+jdk:
+  - oraclejdk8
+script: sh -c 'cd multi-exchange-api && ./gradlew check'
