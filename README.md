@@ -1,5 +1,8 @@
 # Multi-Exchange-Analyzer (MEA)
 
+[![Build Status](https://travis-ci.org/yashino91/multi-exchange-analyzer.svg?branch=master)](https://travis-ci.org/yashino91/multi-exchange-analyzer)
+
+
 Simple profit analyzer for tracking currency pairs between multiple exchanges.
 
 ## Description
