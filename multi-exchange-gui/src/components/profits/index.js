@@ -71,6 +71,22 @@ class CalculateProfits extends Component {
                        profits={this.state.profits}
                     />
                 </div>
+
+                <div id="donation">
+                    <div className="row">
+                        <div className="col-sm-3">
+                            <p>Donate ETH:&nbsp;
+                                <a target="_blank" href="https://etherscan.io/address/0x00bC09660B16AA7614A77313a9D9d0643C47555c#">0x00bC09660B16AA7614A77313a9D9d0643C47555c</a></p>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-sm-3">
+                            Donate BTC:&nbsp;
+                            <a target="_blank" href="https://blockchain.info/address/1JFgCTawZDcar9qd6XAAqR9iEWAFRji9tT">1JFgCTawZDcar9qd6XAAqR9iEWAFRji9tT</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         );
     }

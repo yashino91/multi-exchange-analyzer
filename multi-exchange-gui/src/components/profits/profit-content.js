@@ -42,12 +42,14 @@ class ProfitContent extends Component {
             <div>
 
                 {/*Details about selected profit*/}
-                <div id="singleProfitTracking" className="row">
-                    {this.renderSingleProfitTracking()}
+                <div className="row">
+                    <div  id="singleProfitTracking">
+                        {this.renderSingleProfitTracking()}
+                    </div>
                 </div>
 
                 {/*Table of all available profits*/}
-                <div className="row">
+                <div  className="row">
                     <div className="panel panel-default">
                         <div className="panel-heading">All Profits</div>
                         <div className="panel-body">
