@@ -70,7 +70,7 @@ class ProfitService {
             currentProfits = generateExchangeProfits(exchangePrices)
 
         } else
-            log.warn("No Profits available for update")
+            log.info("No Profits available for update")
 
 
 
